@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+/* #landing-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("/Users/AM/Desktop/Desktop/Code/Projects/landing-pages/serenity-cove-resort/client/src/assets/landingImage.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+} */
