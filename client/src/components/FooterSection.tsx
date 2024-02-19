@@ -6,15 +6,12 @@ export default function FooterSection() {
   return (
     <div
       id="footer-section"
-      className="w-full h-[540px] px-auto bg-yellow-700 flex flex-col items-center justify-center"
+      className="w-full h-[540px] px-[40px] bg-yellow-700 flex flex-col items-center justify-center"
     >
-      <div
-        id="footer-container"
-        className="w-full h-full border-2 border-white my-[60px] relative "
-      >
+      <div id="footer-container" className="w-full h-full my-[60px] relative">
         <div
           id="logo-container"
-          className="flex flex-row items-center justify-center gap-[5px] absolute left-10"
+          className="flex flex-row items-center justify-center gap-[5px] absolute left-0"
         >
           <img
             src={companyLogo}
@@ -27,7 +24,7 @@ export default function FooterSection() {
         </div>
         <div
           id="social-media-container"
-          className="flex flex-row gap-5 absolute bottom-0 left-10"
+          className="flex flex-row gap-5 absolute bottom-0 left-0"
         >
           <div
             id="facebook"
@@ -91,6 +88,27 @@ export default function FooterSection() {
               </li>
             </ul>
           </div>
+        </div>
+        <div
+          id="contact-container"
+          className="flex flex-col items-start justify-start gap-8 absolute left-[500px] bottom-0 "
+        >
+          <hr className=" w-[60px] h-[1px] bg-yellow-300 border-0 rounded" />
+          <div className="flex flex-col gap-[5px] font-sans font-light text-yellow-50 ">
+            <span className="text-[16px] hover:cursor-pointer hover:underline">
+              +1 (800) 225-8521
+            </span>
+            <span className="text-[16px] hover:cursor-pointer hover:underline">
+              info@serenity-resorts.com{" "}
+            </span>
+          </div>
+        </div>
+        <div
+          id="copyright-container"
+          className="flex flex-col text-right gap-0 absolute right-0 bottom-0 text-yellow-500 font-sans font-light"
+        >
+          <span className="text-[11px] ">© 2024 — Serenity Resorts</span>
+          <span className="text-[11px] ">All Rights Reserved</span>
         </div>
       </div>
     </div>
