@@ -1,4 +1,6 @@
 import ActivitiesSection from "../components/ActivitiesSection";
+import ContactSection from "../components/ContactSection";
+import FooterSection from "../components/FooterSection";
 import LandingSection from "../components/LandingSection";
 import OffersSection from "../components/OffersSection";
 import TestimonialsSection from "../components/TestimonialsSection";
@@ -12,8 +14,8 @@ export default function LandingPage() {
       <ActivitiesSection />
       <TestimonialsSection />
       <OffersSection />
-      <div id="contact-section">Contact</div>
-      <div id="footer-section">Footer</div>
+      <ContactSection />
+      <FooterSection />
     </div>
   );
 }
