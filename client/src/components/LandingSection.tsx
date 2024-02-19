@@ -21,9 +21,9 @@ export default function LandingSection() {
         <span className="text-yellow-200 text-[26px] text-center w-fit font-medium ">
           Where Elegance Meets Tranquility
         </span>
-        <Button icon={flightIcon} title="Book your trip" />
+        <Button height="56" icon={flightIcon} title="Book your trip" />
       </div>
-      <div className="absolute right-5 bottom-5 ">
+      <div className="absolute right-5 bottom-5">
         <span className="text-white text-sm text-center w-fit font-medium">
           serenitycove@resort.com | 1-800-225-8521
         </span>
