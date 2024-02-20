@@ -1,12 +1,13 @@
 import companyLogo from "../assets/serenityCoveLogo.svg";
 import facebook from "../assets/facebook.svg";
 import instagram from "../assets/instagram.svg";
+import FooterLinks from "./common/FooterLinks";
 
 export default function FooterSection() {
   return (
     <div
       id="footer-section"
-      className="w-full h-[540px] py-[100px] px-[120px] bg-yellow-700 flex flex-col items-center justify-center"
+      className="w-full h-[540px] py-[60px] px-[120px] bg-yellow-700 flex flex-col items-center justify-center"
     >
       <div id="footer-container" className="w-full h-full relative">
         <div
@@ -41,57 +42,30 @@ export default function FooterSection() {
         </div>
         <div
           id="links-container"
-          className="flex flex-row gap-10 absolute left-[500px] font-sans"
+          className="flex flex-row gap-5 absolute left-[425px] font-sans"
         >
-          <div id="resorts" className="w-[200px] flex flex-col gap-8">
-            <span className="text-white font-medium">Resorts</span>
-            <ul className="list-none text-yellow-50 font-light">
-              <li className="mb-2 hover:underline hover:cursor-pointer">
-                Serenity Cove
-              </li>
-              <li className="mb-2 hover:underline hover:cursor-pointer">
-                HILTOFF
-              </li>
-              <li className="mb-2 hover:underline hover:cursor-pointer">
-                Triple Tree
-              </li>
-              <li className="mb-2 hover:underline hover:cursor-pointer">
-                Five Seasons
-              </li>
-              <li className="mb-2 hover:underline hover:cursor-pointer">
-                Luigiott
-              </li>
-            </ul>
-          </div>
-          <div id="services" className="w-[200px] flex flex-col gap-8 ">
-            <span className="text-white font-medium">Services</span>
-            <ul className="list-none text-yellow-50 font-light">
-              <li className="mb-2 hover:underline hover:cursor-pointer">
-                Vacation Resorts
-              </li>
-              <li className="mb-2 hover:underline hover:cursor-pointer">
-                Events
-              </li>
-            </ul>
-          </div>
-          <div id="about" className="w-[200px] flex flex-col gap-8">
-            <span className="text-white font-medium">Resorts</span>
-            <ul className="list-none text-yellow-50 font-light">
-              <li className="mb-2 hover:underline hover:cursor-pointer">
-                About Us
-              </li>
-              <li className="mb-2 hover:underline hover:cursor-pointer">
-                News
-              </li>
-              <li className="mb-2 hover:underline hover:cursor-pointer">
-                Partners
-              </li>
-            </ul>
-          </div>
+          <FooterLinks
+            header="Resorts"
+            links={[
+              "Serenity Cove",
+              "HILTOFF",
+              "Triple Tree",
+              "Five Seasons",
+              "Luigiott",
+            ]}
+          />
+          <FooterLinks
+            header="Services"
+            links={["Vacation Resorts", "Events"]}
+          />
+          <FooterLinks
+            header="About"
+            links={["About Us", "News", "Partners"]}
+          />
         </div>
         <div
           id="contact-container"
-          className="flex flex-col items-start justify-start gap-8 absolute left-[500px] bottom-0 "
+          className="flex flex-col items-start justify-start gap-8 absolute left-[425px] bottom-0 "
         >
           <hr className=" w-[60px] h-[1px] bg-yellow-300 border-0 rounded hover:bg-yellow-100" />
           <div className="flex flex-col gap-[5px] font-sans font-light text-yellow-50 ">
