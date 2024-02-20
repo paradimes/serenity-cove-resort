@@ -1,27 +1,17 @@
 import OfferCard from "./common/OfferCard";
+import SectionHeader from "./common/SectionHeader";
 
 export default function OffersSection() {
   return (
     <div
       id="offers-section"
-      className="w-full py-[100px] px-auto bg-yellow-50 flex flex-col items-center justify-center"
+      className="w-full py-[100px] px-[120px] bg-yellow-50 flex flex-col items-center justify-center"
     >
-      <div className="flex flex-col items-center justify-center gap-[75px] w-[1152px]">
-        <div
-          id="text-container"
-          className="flex flex-col items-center justify-center gap-5"
-        >
-          <h1 className="text-5xl p-2">Exclusive Offers</h1>
-          <hr className=" w-[350px] h-[2px] bg-yellow-300 border-0 rounded" />
-          <div className="flex flex-col gap-3 text-center m-2">
-            <p>
-              Discover our curated selection of exclusive offers designed to
-              enhance your stay. From early booking advantages to bespoke
-              package deals, elevate your experience at Serenity Cove with these
-              special promotions.
-            </p>
-          </div>
-        </div>
+      <div className="flex flex-col items-center justify-center gap-[75px] w-full">
+        <SectionHeader
+          title="Exclusive Offers"
+          description="Discover our curated selection of exclusive offers designed to enhance your stay. From early booking advantages to bespoke package deals, elevate your experience at Serenity Cove with these special promotions."
+        />
         <div
           id="offers-container"
           className="w-[1278px] flex flex-row items-center justify-center gap-[25px] flex-wrap"

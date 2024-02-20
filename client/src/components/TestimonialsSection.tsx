@@ -4,28 +4,19 @@ import linsday from "../assets/profilePictures/linsday-adebayo.png";
 import mary from "../assets/profilePictures/mary-jones.png";
 import samuel from "../assets/profilePictures/samuel-douglas.png";
 import stefan from "../assets/profilePictures/stefan-garcia.png";
+import SectionHeader from "./common/SectionHeader";
 
 export default function TestimonialsSection() {
   return (
     <div
       id="testimonials-section"
-      className="w-full py-[100px] px-auto bg-white flex flex-col items-center justify-center"
+      className="w-full py-[100px] px-[120px] bg-white flex flex-col items-center justify-center"
     >
-      <div className="flex flex-col items-center justify-center gap-[75px] w-[1152px]">
-        <div
-          id="text-container"
-          className="flex flex-col items-center justify-center gap-5"
-        >
-          <h1 className="text-5xl p-2">Testimonials</h1>
-          <hr className=" w-[350px] h-[2px] bg-yellow-300 border-0 rounded" />
-          <div className="flex flex-col gap-3 text-center m-2">
-            <p>
-              Hear from our esteemed guests about their unforgettable
-              experiences at Serenity Cove, where luxury and service exceed
-              expectations, creating moments that linger long after their stay.
-            </p>
-          </div>
-        </div>
+      <div className="flex flex-col items-center justify-center gap-[75px] w-full">
+        <SectionHeader
+          title="Testimonials"
+          description="Hear from our esteemed guests about their unforgettable experiences at Serenity Cove, where luxury and service exceed expectations, creating moments that linger long after their stay."
+        />
         <div
           id="testimonial-container"
           className="flex w-[1265px] items-center justify-center gap-x-[20px] gap-y-[20px] flex-wrap"

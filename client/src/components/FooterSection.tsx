@@ -6,9 +6,9 @@ export default function FooterSection() {
   return (
     <div
       id="footer-section"
-      className="w-full h-[540px] px-[40px] bg-yellow-700 flex flex-col items-center justify-center"
+      className="w-full h-[540px] py-[100px] px-[120px] bg-yellow-700 flex flex-col items-center justify-center"
     >
-      <div id="footer-container" className="w-full h-full my-[60px] relative">
+      <div id="footer-container" className="w-full h-full relative">
         <div
           id="logo-container"
           className="flex flex-row items-center justify-center gap-[5px] absolute left-0"
@@ -19,7 +19,7 @@ export default function FooterSection() {
             className="w-[17px] h-[17px]"
           />
           <span className="text-[16px] text-white font-medium hover:cursor-pointer">
-            Serenity Cove Luxury Resorts & Spa
+            Serenity Cove Luxury Resort & Spa
           </span>
         </div>
         <div
@@ -93,7 +93,7 @@ export default function FooterSection() {
           id="contact-container"
           className="flex flex-col items-start justify-start gap-8 absolute left-[500px] bottom-0 "
         >
-          <hr className=" w-[60px] h-[1px] bg-yellow-300 border-0 rounded" />
+          <hr className=" w-[60px] h-[1px] bg-yellow-300 border-0 rounded hover:bg-yellow-100" />
           <div className="flex flex-col gap-[5px] font-sans font-light text-yellow-50 ">
             <span className="text-[16px] hover:cursor-pointer hover:underline">
               +1 (800) 225-8521
@@ -105,7 +105,7 @@ export default function FooterSection() {
         </div>
         <div
           id="copyright-container"
-          className="flex flex-col text-right gap-0 absolute right-0 bottom-0 text-yellow-500 font-sans font-light"
+          className="flex flex-col text-right gap-0 absolute right-0 bottom-0 text-yellow-500 font-sans font-light hover:underline"
         >
           <span className="text-[11px] ">© 2024 — Serenity Resorts</span>
           <span className="text-[11px] ">All Rights Reserved</span>
