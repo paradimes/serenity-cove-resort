@@ -1,7 +1,14 @@
-import NavBar from "./common/NavBar";
-import bgImg from "../assets/aboutPageBG.png";
+import NavBar from "./NavBar";
 
-export default function AboutSection() {
+type PageTitleSectionProps = {
+  bgImg: string;
+  title: string;
+};
+
+export default function PageTitleSection({
+  bgImg,
+  title,
+}: PageTitleSectionProps) {
   return (
     <div
       id="about-section"
@@ -22,7 +29,7 @@ export default function AboutSection() {
         className="flex flex-col items-center justify-center w-[930px] gap-10  z-10"
       >
         <span className="text-white text-[84px] leading-tight text-center  font-medium text-nowrap">
-          About Us
+          {title}
         </span>
       </div>
     </div>

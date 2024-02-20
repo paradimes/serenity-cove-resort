@@ -10,7 +10,6 @@ export default function App() {
     <Router>
       <div className="flex w-full h-full">
         <Routes>
-          {/* <LandingPage /> */}
           <Route path="/" element={<LandingPage />} />
           <Route path="about" element={<About />} />
           <Route path="accommodations" element={<Accommodations />} />

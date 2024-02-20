@@ -2,25 +2,28 @@ import serenityCoveLogo from "../assets/serenityCoveLogo.svg";
 import flightIcon from "../assets/flight-icon.svg";
 import Button from "./common/Button";
 import bgImg from "../assets/landingImage.jpg";
-import NavBar from "./common/NavBar";
+// import NavBar from "./common/NavBar";
 
 export default function LandingSection() {
   return (
     <div
       id="landing-section"
-      className="w-full min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center relative"
+      className="w-full min-h-screen py-[60px] px-[120px] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center  relative"
       style={{
         backgroundImage: `url(${bgImg})`,
       }}
     >
       <div
         id="bg-overlay"
-        className="absolute top-0 left-0 w-full h-full bg-black opacity-20"
+        className="absolute top-0 left-0 w-full h-full bg-black opacity-10"
       ></div>
-      <NavBar />
+      {/* Fixed NavBar */}
+      {/* <div className="absolute top-[60px] left-0 right-0 z-50 flex justify-center">
+        <NavBar />
+      </div> */}
       <div
         id="main-container"
-        className="flex flex-col items-center justify-center w-[930px] gap-10 mt-24 z-10 "
+        className="flex flex-col items-center justify-center w-[930px] gap-10 z-10 mt-[50px] "
       >
         <span className="text-white text-[84px] leading-tight text-center  font-medium text-nowrap">
           Serenity Cove <br /> Luxury Resort & Spa

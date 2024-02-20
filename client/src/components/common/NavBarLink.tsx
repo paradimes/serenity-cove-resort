@@ -7,10 +7,10 @@ type NavBarLinkProps = {
 
 export default function NavBarLink({ title, path }: NavBarLinkProps) {
   return (
-    <li className="hover:font-bold">
+    <li className="hover:text-slate-700 hover:duration-700">
       <NavLink
         to={path}
-        className={({ isActive }) => (isActive ? "font-extrabold " : "")}
+        className={({ isActive }) => (isActive ? "underline" : "")}
       >
         {title}
       </NavLink>
