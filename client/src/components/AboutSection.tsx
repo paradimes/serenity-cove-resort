@@ -1,4 +1,3 @@
-import NavBar from "./common/NavBar";
 import bgImg from "../assets/aboutPageBG.png";
 
 export default function AboutSection() {
@@ -14,9 +13,6 @@ export default function AboutSection() {
         id="bg-overlay"
         className="absolute top-0 left-0 w-full h-full bg-black opacity-20"
       ></div>
-      <div className="absolute top-[60px] left-0 right-0 z-50 flex justify-center">
-        <NavBar />
-      </div>
       <div
         id="main-container"
         className="flex flex-col items-center justify-center w-[930px] gap-10  z-10"

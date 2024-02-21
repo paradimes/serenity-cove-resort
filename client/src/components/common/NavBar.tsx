@@ -11,8 +11,6 @@ export default function NavBar() {
         <NavBarLink path="/about" title="ABOUT US" />
         <NavBarLink path="/accommodations" title="ACCOMMODATIONS" />
         <NavBarLink path="/events" title="EVENTS" />
-        {/* OMIT FOR NOW */}
-        {/* <NavBarLink path="/events" title="CONTACT" />  */}
       </ul>
     </nav>
   );
