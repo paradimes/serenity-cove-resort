@@ -46,21 +46,28 @@ export default function FooterSection() {
         >
           <FooterLinks
             header="Resorts"
-            links={[
-              "Serenity Cove",
-              "HILTOFF",
-              "Triple Tree",
-              "Five Seasons",
-              "Luigiott",
-            ]}
+            links={{
+              serenityCove: { linkTitle: "Serenity Cove", path: "/" },
+              hiltoff: { linkTitle: "HILTOFF", path: "#" },
+              tripleTree: { linkTitle: "Triple Tree", path: "#" },
+              fiveSeasons: { linkTitle: "Five Seasons", path: "#" },
+              luigiott: { linkTitle: "Luigiott", path: "#" },
+            }}
           />
           <FooterLinks
             header="Services"
-            links={["Vacation Resorts", "Events"]}
+            links={{
+              vacationResorts: { linkTitle: "Vacation Resorts", path: "#" },
+              events: { linkTitle: "Events", path: "/events" },
+            }}
           />
           <FooterLinks
             header="About"
-            links={["About Us", "News", "Partners"]}
+            links={{
+              aboutUs: { linkTitle: "About Us", path: "/about" },
+              news: { linkTitle: "News", path: "#" },
+              partners: { linkTitle: "Partners", path: "#" },
+            }}
           />
         </div>
         <div
