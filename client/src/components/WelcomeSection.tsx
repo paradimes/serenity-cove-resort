@@ -4,7 +4,7 @@ export default function WelcomeSection() {
   return (
     <div
       id="welcome-section"
-      className="w-full py-[100px] px-[120px] bg-white flex flex-col items-center justify-center "
+      className="w-full py-[100px] px-[60px] md:px-[120px] bg-white flex flex-col items-center justify-center border-2 border-red-500 "
     >
       <div className="flex flex-col items-center justify-center gap-[75px] w-full">
         <SectionHeader

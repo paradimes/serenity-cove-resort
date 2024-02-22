@@ -27,13 +27,14 @@ export default function App() {
   return (
     <Router>
       <div className="flex w-full h-full">
-        <div
-          className={`fixed left-0 right-0 z-50 flex justify-center duration-700  ${
+        {/* <div
+          id="navbar-container"
+          className={` fixed left-0 right-0 z-50 flex justify-center duration-700  ${
             isScrolled ? "bg-yellow-800 bg-opacity-90 py-8 top-0" : "top-[60px]"
           }`}
         >
           <NavBar />
-        </div>
+        </div> */}
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<LandingPage />} />

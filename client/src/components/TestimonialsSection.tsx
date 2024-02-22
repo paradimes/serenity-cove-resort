@@ -10,7 +10,7 @@ export default function TestimonialsSection() {
   return (
     <div
       id="testimonials-section"
-      className="w-full py-[100px] px-[120px] bg-white flex flex-col items-center justify-center"
+      className="w-full py-[100px] px-[60px] md:px-[120px] bg-white flex flex-col items-center justify-center"
     >
       <div className="flex flex-col items-center justify-center gap-[75px] w-full">
         <SectionHeader

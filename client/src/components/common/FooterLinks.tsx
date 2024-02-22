@@ -11,7 +11,7 @@ export default function FooterLinks({ header, links }: FooterLinksProps) {
       <span className="text-white font-medium">{header}</span>
       <ul className="list-none text-yellow-50 font-light w-fit">
         {Object.values(links).map((link, index) => (
-          <li key={index} className="hover:underline">
+          <li key={index} className="mb-2 hover:underline hover:cursor-pointer">
             <NavLink to={link.path}>{link.linkTitle}</NavLink>
           </li>
         ))}

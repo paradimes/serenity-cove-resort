@@ -7,7 +7,9 @@ type ButtonProps = {
 export default function Button({ height, title, icon }: ButtonProps) {
   return (
     <div
-      className={` w-56 bg-yellow-400 flex flex-row items-center justify-center gap-2 p-3 rounded-md`}
+      className={`px-[48px] bg-yellow-400 flex flex-row items-center justify-center gap-2 py-3 rounded-md
+      hover:bg-yellow-500 transition ease-in-out  hover:-translate-y-1 hover:scale-110 duration-300
+      `}
       style={{ height: `${height}px` }}
     >
       <img src={icon} height={24} />

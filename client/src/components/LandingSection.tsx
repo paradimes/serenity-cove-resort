@@ -17,28 +17,24 @@ export default function LandingSection() {
         id="bg-overlay"
         className="absolute top-0 left-0 w-full h-full bg-black opacity-10"
       ></div>
-      {/* Fixed NavBar */}
-      {/* <div className="absolute top-[60px] left-0 right-0 z-50 flex justify-center">
-        <NavBar />
-      </div> */}
       <div
         id="main-container"
-        className="flex flex-col items-center justify-center w-[930px] gap-10 z-10 mt-[50px] "
+        className="flex flex-col items-center justify-center gap-10 z-10 mt-[50px]"
       >
-        <span className="text-white text-[84px] leading-tight text-center  font-medium text-nowrap">
+        <span className="flex text-white text-[36px] sm:text-[54px] md:text-[72px] lg:text-[84px] leading-tight text-center font-medium text-nowrap">
           Serenity Cove <br /> Luxury Resort & Spa
         </span>
         <img src={serenityCoveLogo} className="" />
-        <span className="text-yellow-200 text-[26px] text-center w-fit font-medium ">
+        <span className="text-yellow-200 text-[18px] sm:text-[22px] md:text-[24px] lg:text-[26px] text-center w-fit font-medium ">
           Where Elegance Meets Tranquility
         </span>
         <Button height="56" icon={flightIcon} title="Book your trip" />
       </div>
-      <div className="absolute right-[120px] bottom-5 z-10">
+      {/* <div className="absolute right-[120px] bottom-5 z-10">
         <span className="text-white text-sm text-center w-fit font-medium">
           serenitycove@resort.com | 1-800-225-8521
         </span>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function ActivitiesSection() {
   return (
     <div
       id="activities-section"
-      className="w-full py-[100px] px-[120px] bg-yellow-50 flex flex-col items-center justify-center"
+      className="w-full py-[100px] px-[60px] md:px-[120px] bg-yellow-50 flex flex-col items-center justify-center"
     >
       <div className="flex flex-col items-center justify-center gap-[75px] w-full">
         <SectionHeader
@@ -20,7 +20,7 @@ export default function ActivitiesSection() {
         />
         <div
           id="icons-container"
-          className="flex w-[624px] p-3 items-center justify-center gap-x-[100px] gap-y-[50px] flex-wrap"
+          className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 p-3 gap-x-[100px] gap-y-[50px] border-2 border-red-500"
         >
           <Activity title="Swimming" icon={swimming} />
           <Activity title="Boat Tours" icon={boat} />
