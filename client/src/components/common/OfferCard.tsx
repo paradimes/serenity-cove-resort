@@ -17,7 +17,7 @@ export default function OfferCard({
   return (
     <div
       id="card-container"
-      className="w-[406px] min-h-[591px] bg-yellow-100 flex items-center justify-center rounded-md px-[38px] py-[50px]"
+      className="max-w-[406px] min-h-[591px] bg-yellow-100 flex items-center justify-center rounded-md px-[38px] py-[50px]"
     >
       <div
         id="main-container"

@@ -20,7 +20,7 @@ export default function ActivitiesSection() {
         />
         <div
           id="icons-container"
-          className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 p-3 gap-x-[100px] gap-y-[50px] border-2 border-red-500"
+          className="grid grid-cols-2  sm:grid-cols-3 p-3 gap-x-[100px] gap-y-[50px] border-2 border-red-500"
         >
           <Activity title="Swimming" icon={swimming} />
           <Activity title="Boat Tours" icon={boat} />

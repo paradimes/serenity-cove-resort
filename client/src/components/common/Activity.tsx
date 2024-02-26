@@ -6,7 +6,7 @@ type ActivityProps = {
 export default function Activity({ title, icon }: ActivityProps) {
   return (
     <div className="col-span-1 flex flex-col gap-[5px] grid-span">
-      <img src={icon} className="h-[80px]" />
+      <img src={icon} className="h-[50px] sm:h-[60px] md:h-[80px]" />
       <span className="text-center text-base">{title}</span>
     </div>
   );

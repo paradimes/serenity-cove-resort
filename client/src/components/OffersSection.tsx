@@ -5,7 +5,7 @@ export default function OffersSection() {
   return (
     <div
       id="offers-section"
-      className="w-full py-[100px] px-[120px] bg-yellow-50 flex flex-col items-center justify-center"
+      className="w-full py-[100px] px-[60px] md:px-[120px] bg-yellow-50 flex flex-col items-center justify-center"
     >
       <div className="flex flex-col items-center justify-center gap-[75px] w-full">
         <SectionHeader
@@ -14,7 +14,7 @@ export default function OffersSection() {
         />
         <div
           id="offers-container"
-          className="w-[1278px] flex flex-row items-center justify-center gap-[25px] flex-wrap"
+          className=" flex flex-row items-center justify-center gap-[25px] flex-wrap"
         >
           <OfferCard
             title="Silver Serenity Package"

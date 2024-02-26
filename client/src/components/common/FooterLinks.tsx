@@ -7,7 +7,7 @@ type FooterLinksProps = {
 
 export default function FooterLinks({ header, links }: FooterLinksProps) {
   return (
-    <div className="w-[260px] flex flex-col gap-8">
+    <div className="w-full flex flex-col gap-8">
       <span className="text-white font-medium">{header}</span>
       <ul className="list-none text-yellow-50 font-light w-fit">
         {Object.values(links).map((link, index) => (
