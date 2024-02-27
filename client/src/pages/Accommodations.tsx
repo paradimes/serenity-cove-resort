@@ -8,7 +8,7 @@ export default function Accommodations() {
       <PageTitleSection bgImg={bgImg} title="Accommodations" />
       <div
         id="text-section"
-        className="px-[120px] py-[100px] flex items-center justify-center"
+        className="px-[60px] md:px-[120px] py-[100px] flex items-center justify-center "
       >
         <p className="text-[23px] text-center">
           Our accommodations are havens of plush comfort and elegance. Choose

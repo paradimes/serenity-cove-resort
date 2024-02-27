@@ -9,7 +9,7 @@ export default function About() {
 
       <div
         id="text-section"
-        className="px-[120px] py-[100px] flex items-center justify-center"
+        className="px-[60px] md:px-[120px]  py-[100px] flex items-center justify-center"
       >
         <p className="text-[23px] text-center">
           Serenity Cove Luxury Resort & Spa is more than a destination; it's a

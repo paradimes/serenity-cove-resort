@@ -27,7 +27,7 @@ export default function NavBarLink({
   }, []);
 
   return (
-    <li className="hover:text-slate-700 hover:duration-700">
+    <li className="hover:text-yellow-800 hover:duration-700 duration-200">
       <NavLink
         to={path}
         className={({ isActive }) => (isActive ? "underline" : "")}

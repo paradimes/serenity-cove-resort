@@ -10,7 +10,7 @@ export default function SectionHeader({
   return (
     <div
       id="text-container"
-      className="max-w-[1132px] flex flex-col items-center justify-center gap-5 border-2 border-black text-center"
+      className="max-w-[1132px] flex flex-col items-center justify-center gap-5 text-center"
     >
       <h1 className="text-5xl p-2">{title}</h1>
       <hr className=" w-[350px] h-[2px] bg-yellow-300 border-0 rounded" />

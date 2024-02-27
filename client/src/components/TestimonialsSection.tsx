@@ -19,7 +19,7 @@ export default function TestimonialsSection() {
         />
         <div
           id="testimonial-container"
-          className="flex items-center justify-center gap-x-[20px] gap-y-[20px] flex-wrap border-2 border-blue-500"
+          className="flex items-center justify-center gap-x-[20px] gap-y-[20px] flex-wrap"
         >
           <TestimonialCard
             name="Mary Jones"

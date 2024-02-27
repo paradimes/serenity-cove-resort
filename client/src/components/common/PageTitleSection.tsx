@@ -21,9 +21,9 @@ export default function PageTitleSection({
       ></div>
       <div
         id="main-container"
-        className="flex flex-col items-center justify-center w-[930px] gap-10  z-10"
+        className="flex flex-col items-center justify-center gap-10  z-10"
       >
-        <span className="text-white text-[84px] leading-tight text-center  font-medium text-nowrap">
+        <span className="text-white text-[40px] sm:text-[64px] md:text-[84px] leading-tight text-center  font-medium text-nowrap">
           {title}
         </span>
       </div>
