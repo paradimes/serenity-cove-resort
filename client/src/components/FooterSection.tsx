@@ -94,7 +94,7 @@ export default function FooterSection() {
 
         <div
           id="copyright-container"
-          className="col-span-1 flex items-start justify-start flex-col text-center lg:text-right gap-0 text-yellow-500  font-light hover:underline max-lg:mt-0"
+          className="col-span-1 flex max-lg:items-start max-lg:justify-start items-end justify-end flex-col text-center lg:text-right gap-0 text-yellow-500  font-light hover:underline max-lg:mt-0"
         >
           <span className="text-[11px] ">© 2024 — Serenity Resorts</span>
           <span className="text-[11px] ">All Rights Reserved</span>
