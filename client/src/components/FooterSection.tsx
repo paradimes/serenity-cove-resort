@@ -45,6 +45,7 @@ export default function FooterSection() {
             links={{
               vacationResorts: { linkTitle: "Vacation Resorts", path: "#" },
               events: { linkTitle: "Events", path: "/events" },
+              bookings: { linkTitle: "Bookings", path: "/book" },
             }}
           />
           <FooterLinks

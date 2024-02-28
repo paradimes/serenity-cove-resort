@@ -7,6 +7,7 @@ import Events from "./pages/Events";
 import { useEffect, useState } from "react";
 import NavBar from "./components/common/NavBar";
 import { ScrollToTop } from "./utils/ScrollToTop";
+import BookingPage from "./pages/BookingPage";
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="accommodations" element={<Accommodations />} />
           <Route path="events" element={<Events />} />
+          <Route path="book" element={<BookingPage />} />
         </Routes>
       </div>
     </Router>
