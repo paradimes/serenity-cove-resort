@@ -1,6 +1,7 @@
 import FooterSection from "../components/FooterSection";
 import PageTitleSection from "../components/common/PageTitleSection";
 import bgImg from "../assets/bookingPageBG.jpg";
+import BookingForm from "@/components/BookingForm";
 
 export default function BookingPage() {
   return (
@@ -8,9 +9,10 @@ export default function BookingPage() {
       <PageTitleSection bgImg={bgImg} title="Book your trip" />
       <div
         id="text-section"
-        className="px-[60px] md:px-[120px] py-[100px] flex items-center justify-center"
+        className="px-[60px] md:px-[120px] py-[100px] flex flex-col items-start justify-start gap-5"
       >
         <p className="text-[23px] text-center">Get ready!</p>
+        <BookingForm />
       </div>
       <FooterSection />
     </div>
