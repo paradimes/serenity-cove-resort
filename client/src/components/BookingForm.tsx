@@ -23,18 +23,17 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { toast } from "@/components/ui/use-toast";
 
 // 1. Create a form schema - using Zod schema
 const FormSchema = z.object({
   firstname: z
     .string({
-      required_error: "Please provide your first name.",
       invalid_type_error: "Name must be a string",
     })
     .min(1, { message: "Please provide your first name." }),
   lastname: z
     .string({
-      required_error: "Please provide your last name.",
       invalid_type_error: "Name must be a string",
     })
     .min(1, { message: "Please provide your last name." }),
@@ -75,43 +74,50 @@ export default function BookingForm() {
     },
   });
 
+  // Errors object
   console.log("formErrors: ", JSON.stringify(form.formState.errors, null, 4));
 
   // 2.2 Define submit handler
   function onSubmit(values: z.infer<typeof FormSchema>) {
     console.log(values);
+    toast({
+      title: "Reservation Confirmed",
+      description: "We can't wait to see you!",
+    });
   }
 
   // 3. Build your form using <Form /> components
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="firstname"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>First Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Mark" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="lastname"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Last Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Zuckerberg" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <div className="flex flex-row gap-10">
+          <FormField
+            control={form.control}
+            name="firstname"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>First Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="Mark" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="lastname"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Last Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="Zuckerberg" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
         <FormField
           control={form.control}
           name="dates"
