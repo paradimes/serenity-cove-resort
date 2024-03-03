@@ -41,27 +41,29 @@ const FormSchema = z.object({
   dates: z
     .object({
       from: z.date(),
-      to: z.date(),
+      to: z.date().optional(),
+      // .refine() message is only reached if the property is optional! otherwise, since it's required by default, the defaul required message supercedes
     })
-    .refine((obj) => obj.from && obj.to, {
-      message: "Passwords do not match",
-      path: ["."], // this value is concatenated to the end of the actual path of the error
-    }),
+    .refine(
+      (dates) => {
+        const fromTime = new Date(dates.from).getTime();
+        const toTime = dates.to ? new Date(dates.to).getTime() : 1; // since dates.to is optional, we must satisfy ts type checks. chose 1 arbitrarily.
+        return fromTime !== toTime; // we only proceed to the message if this condition returns false (i.e. dates.from and dates.to are the same)
+      },
+      {
+        message: "You must stay for at least one night.",
+        path: ["."], // this value is concatenated to the end of the actual path of the error
+      }
+    )
+    .refine(
+      // chaining .refine()
+      (dates) => dates.to, // we only proceed to the message if this condition returns false (i.e. dates.to is undefined)
+      {
+        message: "Please select a return date.",
+        path: ["."],
+      }
+    ),
 });
-
-// const customErrorMap: z.ZodErrorMap = (issue, ctx) => {
-//   if (issue.code === z.ZodIssueCode.invalid_type) {
-//     if (issue.expected === "string") {
-//       return { message: "bad type!" };
-//     }
-//   }
-//   if (issue.code === z.ZodIssueCode.custom) {
-//     return { message: `less-than-${(issue.params || {}).minimum}` };
-//   }
-//   return { message: ctx.defaultError };
-// };
-
-// z.setErrorMap(customErrorMap);
 
 export default function BookingForm() {
   // 2.1 Define form with useForm hook from react-hook-form
@@ -73,7 +75,7 @@ export default function BookingForm() {
     },
   });
 
-  console.log(JSON.stringify(form.formState.errors, null, 4));
+  console.log("formErrors: ", JSON.stringify(form.formState.errors, null, 4));
 
   // 2.2 Define submit handler
   function onSubmit(values: z.infer<typeof FormSchema>) {
@@ -147,7 +149,7 @@ export default function BookingForm() {
                   <Calendar
                     initialFocus
                     mode="range"
-                    // defaultMonth={field.value?.from}
+                    defaultMonth={field.value?.from}
                     selected={field.value}
                     onSelect={field.onChange}
                     numberOfMonths={2}
