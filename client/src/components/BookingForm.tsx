@@ -1,10 +1,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 import { z } from "zod";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";
+import { isValidPhoneNumber } from "libphonenumber-js";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css"; // Import stylesheet
 
 import {
   Form,
@@ -25,18 +28,51 @@ import {
 } from "@/components/ui/popover";
 import { toast } from "@/components/ui/use-toast";
 
-// 1. Create a form schema - using Zod schema
-const FormSchema = z.object({
+const memberSchema = z.object({
   firstname: z
     .string({
       invalid_type_error: "Name must be a string",
     })
-    .min(1, { message: "Please provide your first name." }),
+    .min(1, { message: "Please provide a first name" }),
   lastname: z
     .string({
       invalid_type_error: "Name must be a string",
     })
-    .min(1, { message: "Please provide your last name." }),
+    .min(1, { message: "Please provide a last name" }),
+});
+// 1. Create a form schema - using Zod schema
+export const FormSchema = z.object({
+  firstname: z
+    .string({
+      invalid_type_error: "Name must be a string",
+    })
+    .min(1, { message: "Please provide your first name" }),
+  lastname: z
+    .string({
+      invalid_type_error: "Name must be a string",
+    })
+    .min(1, { message: "Please provide your last name" }),
+  email: z
+    .string()
+    .email({ message: "Invalid email address" })
+    .min(1)
+    .refine(
+      // chaining .refine()
+      (value) => value.length > 0,
+      {
+        message: "Please provide your email address",
+        path: ["."],
+      }
+    ),
+  phone: z.string().refine(
+    (value) => {
+      if (!value || value.length < 7) return true;
+      return isValidPhoneNumber(value);
+    },
+    {
+      message: "Invalid phone number",
+    }
+  ),
   dates: z
     .object({
       from: z.date(),
@@ -50,7 +86,7 @@ const FormSchema = z.object({
         return fromTime !== toTime; // we only proceed to the message if this condition returns false (i.e. dates.from and dates.to are the same)
       },
       {
-        message: "You must stay for at least one night.",
+        message: "You must stay for at least one night",
         path: ["."], // this value is concatenated to the end of the actual path of the error
       }
     )
@@ -58,10 +94,14 @@ const FormSchema = z.object({
       // chaining .refine()
       (dates) => dates.to, // we only proceed to the message if this condition returns false (i.e. dates.to is undefined)
       {
-        message: "Please select a return date.",
+        message: "Please select a return date",
         path: ["."],
       }
     ),
+  members: z
+    .array(memberSchema)
+    .max(9, { message: "You can only add up to 9 additional members." })
+    .optional(),
 });
 
 export default function BookingForm() {
@@ -71,6 +111,8 @@ export default function BookingForm() {
     defaultValues: {
       firstname: "",
       lastname: "",
+      email: "",
+      phone: "",
     },
   });
 
@@ -85,6 +127,15 @@ export default function BookingForm() {
       description: "We can't wait to see you!",
     });
   }
+
+  const phone = form.watch("phone"); // Watch the phone input value
+
+  const { control } = useForm();
+
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "members",
+  });
 
   // 3. Build your form using <Form /> components
   return (
@@ -118,6 +169,45 @@ export default function BookingForm() {
             )}
           />
         </div>
+        <div className="flex flex-row gap-10">
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="mark.zuckerberg@gmail.com" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Phone</FormLabel>
+                <FormControl>
+                  <PhoneInput
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    {...field}
+                    defaultCountry="US"
+                    value={phone}
+                    onChange={(value) =>
+                      form.setValue("phone", value ?? "", {
+                        shouldValidate: true,
+                      })
+                    }
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
         <FormField
           control={form.control}
           name="dates"
@@ -170,6 +260,67 @@ export default function BookingForm() {
             </FormItem>
           )}
         />
+
+        {/* {fields.map((field, index) => (
+          <div key={field.id}>
+            <input
+              {...register(`members.${index}.firstname`)}
+              placeholder="Member Name"
+              type="text"
+            />
+            <input
+              {...register(`members.${index}.lastname`)}
+              placeholder="Member Age"
+              type="text"
+            />
+            <button type="button" onClick={() => remove(index)}>
+              Remove
+            </button>
+          </div>
+        ))} */}
+
+        {fields.map((field, index) => (
+          <div key={field.id} className="flex flex-row gap-10">
+            <FormField
+              control={form.control}
+              name={`members.${index}.firstname`}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>First Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Member First Name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name={`members.${index}.lastname`}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Last Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Member Last Name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button onClick={() => remove(index)}>Remove Member</Button>
+          </div>
+        ))}
+
+        <Button
+          type="button"
+          onClick={() =>
+            fields.length < 9 ? append({ firstname: "", lastname: "" }) : null
+          }
+          disabled={fields.length >= 9}
+        >
+          Add Extra Member
+        </Button>
+
         <Button type="submit">Submit</Button>
       </form>
     </Form>
