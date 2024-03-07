@@ -103,15 +103,14 @@ export default function BookingForm() {
     name: "members",
   });
 
-  console.log("fieldsArray", fields);
-
   // Errors object
-  console.log("formErrors: ", JSON.stringify(form.formState.errors, null, 4));
-  console.log("-----------------------------------------");
+  // console.log("formErrors: ", JSON.stringify(form.formState.errors, null, 4));
+  // console.log("-----------------------------------------");
 
   // 2.2 Define submit handler
-  function onSubmit(values: z.infer<typeof FormSchema>) {
-    console.log(values);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  function onSubmit(_values: z.infer<typeof FormSchema>) {
+    // console.log(values);
     toast({
       title: "Reservation Confirmed",
       description: "We will be in touch with you soon!",
